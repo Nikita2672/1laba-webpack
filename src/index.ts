@@ -12,13 +12,14 @@ import {Globals} from "./Globals";
 import {receiveSubmit, success} from "./update";
 
 const dt = require('datatables.net-dt')
-$(document).ready(function () {
+$(document).ready(function (): void {
 
-    constants.FIELD_Y = $('#y_value');
-    constants.FIELD_X = $('#x_value');
-    constants.FIELD_R = $('#r_value');
-    constants.TABLE = $('#table_id');
+    initConstants();
+    reloadTable();
+    addListeners();
+});
 
+function reloadTable(): void {
     Globals.table = $('#table_id').DataTable({
         data: Globals.dataset,
         columns: [
@@ -40,10 +41,18 @@ $(document).ready(function () {
             success(data);
         }
     })
+}
 
 
+function initConstants(): void {
+    constants.FIELD_Y = $('#y_value');
+    constants.FIELD_X = $('#x_value');
+    constants.FIELD_R = $('#r_value');
+    constants.TABLE = $('#table_id');
+}
 
 
+function addListeners(): void {
     for (let i = -4; i < 5; i++) {
         $('#x' + i.toString()).on("click", () => {
             processFieldSelection(constants.FIELD_X, i.toString(), 'x');
@@ -57,4 +66,4 @@ $(document).ready(function () {
         receiveSubmit();
         return false;
     })
-});
+}

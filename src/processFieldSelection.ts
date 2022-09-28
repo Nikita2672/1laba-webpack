@@ -1,4 +1,4 @@
-export function processFieldSelection(field: object, value: string, fieldName: string) {
+export function processFieldSelection(field: object, value: string, fieldName: string): void {
     if ($(field).val() === value) {
         $(field).val("");
         $('#' + fieldName + value).removeClass('selected');

@@ -2,7 +2,7 @@ import {constants} from "./Constants";
 import {validateInputedValues} from "./validator";
 import {Globals} from "./Globals";
 
-export function receiveSubmit() {
+export function receiveSubmit(): void {
     console.log('1');
     const x = $(constants.FIELD_X).val();
     const y = $(constants.FIELD_Y).val();
@@ -16,7 +16,7 @@ export function receiveSubmit() {
 
 function sendRequest(x: string | number | string[] | undefined,
                      y: string | number | string[] | undefined,
-                     r: string | number | string[] | undefined) {
+                     r: string | number | string[] | undefined): void {
     $.ajax({
         type: "GET",
         url: "index.php",
@@ -28,14 +28,14 @@ function sendRequest(x: string | number | string[] | undefined,
     });
 }
 
-export function success(data: string) {
+export function success(data: string): void {
     // @ts-ignore
     Globals.table.destroy();
     initTable(data);
 }
 
-function initTable(data: string) {
-    var mass: string[] = data.split("%");
+function initTable(data: string): void {
+    let mass: string[] = data.split("%");
     Globals.dataset = [];
     if (mass[0] !== '') {
         for (let i = 0; i < mass.length; i++) {
