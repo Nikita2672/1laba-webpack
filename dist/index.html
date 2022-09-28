@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.css">
+    <title>Document</title>
+</head>
+<div id="flex-container">
+    <body>
+    <script src="script.js"></script>
+    <div class="header">
+        <h3 id="author" class="header__title header__title_animation">Nikita Ivanov<br>P32302 var: 3206</h3>
+    </div>
+
+    <div class="graph">
+        <h3 class="header__title header__title_animation">Graphic</h3>
+        <div class="graph__plot graph__plot_animation">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <td>
+                <svg height="300" width="300">
+                    <!--Координатные оси-->
+                    <line x1="0" x2="300" y1="150" y2="150"></line>
+                    <line x1="150" x2="150" y1="0" y2="300"></line>
+                    <!--Стрелочки-->
+                    <polygon points="150,0 145,15 155,15" stroke="black"></polygon>
+                    <polygon points="300,150 285,145 285,155" stroke="black"></polygon>
+                    <!--Прямоугольник в третьей четверти-->
+                    <polygon points="50,200 150,200 150,150 50,150"></polygon>
+                    <!--Четверть круга во второй четверти-->
+                    <path d="M100,150 A50,50 45 0,1 150,100 L 150,150 Z"></path>
+                    <!--Треугольник в первой четверти-->
+                    <polygon points="150,150 200,150 150,50"></polygon>
+                    <!-- Подписи к осям -->
+                    <text x="285" y="135">X</text>
+                    <text x="160" y="15">Y</text>
+                    <!-- Метки для значений R на оси X -->
+                    <line x1="50" x2="50" y1="140" y2="160"></line>
+                    <line x1="100" x2="100" y1="140" y2="160"></line>
+                    <line x1="200" x2="200" y1="140" y2="160"></line>
+                    <line x1="250" x2="250" y1="140" y2="160"></line>
+                    <!-- Метки для значений R на оси Y -->
+                    <line x1="140" x2="160" y1="50" y2="50"></line>
+                    <line x1="140" x2="160" y1="100" y2="100"></line>
+                    <line x1="140" x2="160" y1="200" y2="200"></line>
+                    <line x1="140" x2="160" y1="250" y2="250"></line>
+                    <!-- Значения R на оси X -->
+                    <text x="40" y="130">-R</text>
+                    <text x="85" y="130">-R/2</text>
+                    <text x="190" y="130">R/2</text>
+                    <text x="245" y="130">R</text>
+                    <!-- Значения R на оси Y -->
+                    <text x="170" y="52.5">R</text>
+                    <text x="170" y="102.5">R/2</text>
+                    <text x="170" y="202.5">-R/2</text>
+                    <text x="170" y="252.5">-R</text>
+                </svg>
+            </td>
+        </div>
+    </div>
+
+    <div class="form">
+        <h4 class="header__title header__title_animation">Form with coordinates</h4>
+        <form class="form__frame form__frame_animation">
+            <div class="values">
+                <p class="values__x">
+                    <label for="x_value">X:</label>
+                    <button type="button" class="x-button" id="x-4">
+                        -4
+                    </button>
+                    <button type="button" class="x-button" id="x-3">
+                        -3
+                    </button>
+                    <button type="button" class="x-button" id="x-2">
+                        -2
+                    </button>
+                    <button type="button" class="x-button" id="x-1">
+                        -1
+                    </button>
+                    <button type="button" class="x-button" id="x0">
+                        0
+                    </button>
+                    <button type="button" class="x-button" id="x1">
+                        1
+                    </button>
+                    <button type="button" class="x-button" id="x2">
+                        2
+                    </button>
+                    <button type="button" class="x-button" id="x3">
+                        3
+                    </button>
+                    <button type="button" class="x-button" id="x4">
+                        4
+                    </button>
+                    <input type="hidden" name="x_coord" id="x_value">
+                    <label id="mistake" for="x_value" class="mistake">select</label>
+                </p>
+                <p class="values__y">
+                    <label for="y_value">Y:</label><input id="y_value" type="text" class="input js-input js-input-Y"
+                                                          name="y_value"
+                                                          placeholder="Please enter Y">
+                    <label for="y_value" class="limitations">Y must be (-3 ... 5)</label>
+                </p>
+                <p class="values__r">
+                    <label for="r_value">R:</label><input id="r_value" type="text" class="input js-input js-input-R"
+                                                          name="r_value"
+                                                          placeholder="Please enter R">
+                    <label for="r_value" class="limitations">R must be (2 ... 5)</label>
+                </p>
+                <p class="buttons">
+                    <input class="button_animation" id="reset" type="reset" value="reset">
+                    <input class="button_animation" id="submit" type="button" value="send">
+                </p>
+            </div>
+        </form>
+    </div>
+
+    <div class="table_box">
+        <h4 class="header__title header__title_animation">Table with results</h4>
+        <table id="table_id" class="display">
+        </table>
+    </div>
+    </body>
+</div>
+</html>
