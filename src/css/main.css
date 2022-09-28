@@ -1,0 +1,15 @@
+.input.error {
+    border-color: red;
+    border-width: 2px;
+}
+
+.mistake {
+    color: #48466D;
+}
+
+body {
+    background-color: #00B8A9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
